@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #232223;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    display: flex;
+    padding: 1rem;
+    font-size: 2rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+#filtrados{
+    display: flex;
+    justify-content: space-between;
+}
+#filtrados label{
+    margin-left: .5rem;
+}
+#filtrados input{
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+}
+#filtrados select{
+    justify-content: center;
+    align-items: center;
+    padding: 0.20rem;
+}
+#crear{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+#crear input{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+#recuento{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+#listado >button{
+    color:#e19724;
+    background-color: #232223;
+    border: none;
+}
+#listado >button:hover{
+    color: #232223;
+    background-color: #e19724;
+}
+
+hr{
+    width: 100%;
+    border: 1px solid #313130;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.tarea{
+    width: 100%;
+    display: flex;   
+    flex-direction: column;
+    flex-grow: 3;
+    background-color: #303030;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: #424243 1px solid;
+}
+.datos, .nombre{
+    display: flex;
+    gap: 1rem;
+}
+.borrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scale: 1.1;
+    margin-left: 0.5rem;
+}
+.borrar:hover{
+    color: #e19724;
+}
+.aceptar{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+.nombre{
+    flex-grow: 3;
+    font-size: 2rem;
+}
+.low, .mid, .high{
+    padding: 0.25rem;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    border: #424243 1px solid;
+}
+.datos{
+    display: flex;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+.fa-circle{
+    display:inline;
+}
+.fa-circle-check{
+    display: none;
+}
+.fa-circle.hecho{
+    display: none;
+}
+.fa-circle-check.hecho{
+    display:inline;
+    color: #19b186;
+}
+.nombre p.hecho{
+    text-decoration: line-through;
+    color: #19b186;
+}
+.fa-chart-column{
+    margin-right:1rem;
+}
+.datos button{
+    background-color: #454545;
+    color: #717170;
+}
+.low.seleccionado, .mid.seleccionado, .high.seleccionado{
+    color: white;
+}
+.low.seleccionado{
+    background-color: #3383be;
+}
+.mid.seleccionado{
+    background-color: #3f5875;
+}
+.high.seleccionado{
+    background-color: #cb5844;
+}

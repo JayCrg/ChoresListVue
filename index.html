@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto Gestor de Tareas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/bfe47c94ff.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Proyecto de Vue</h1>
+    </header>
+    <main id="app">
+        <div id="crear">
+            <input type="text" id="nuevaTarea" placeholder="What do you want me to remind you?" @keyup.enter="insertar"
+                v-model="nuevaNota">
+        </div>
+        <div id="recuento">
+            <div id="filtrados">
+                <input type="text" placeholder="Filter by task" v-model="campoFiltro">
+                <label for="" id="labelPriodidad">
+                    Priorities
+                    <select name="prioridad" v-model="prioridad">
+                        <option selected value="0">All</option>
+                        <option value="1">Low</option>
+                        <option value="2">Normal</option>
+                        <option value="3">High</option>
+                    </select>
+                </label>
+            </div>
+            <hr>
+            <div id="listado">
+                <span><i class="fa-solid fa-chart-column"></i><span class="tareas actuales"> {{ tareasPendientes
+                        }}</span> Tareas pendientes de un total de <span class="tareas totales">
+                        {{tareasTotales}}</span> | </span>
+                <button id="borrarCompletadas" @click="borrarCompletadas()"><i class="fa-solid fa-circle-xmark"></i>
+                    Borrar Tareas Completadas</button>
+            </div>
+            <hr>
+            <div id="lista">
+                <div class="tarea" v-for="tarea in entradasFiltradas" :id="tarea.id" :key="tarea.id">
+                    <div class="aceptar">
+                        <div class="nombre">
+                            <i :class="['fa-regular fa-circle',  {hecho:tarea.hecho}]"
+                                @click="cambiarMarcado(tarea.id)"></i><i
+                                :class="['fa-regular fa-circle-check',{hecho:tarea.hecho}]"
+                                @click="cambiarMarcado(tarea.id)"></i>
+                            <p :class="{hecho:tarea.hecho}">{{tarea.texto}}</p>
+                        </div>
+                        <div class="borrar" @click="borrarTarea(tarea.id)">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                    </div>
+                    <div class="datos">
+                        <p>Prioridad: </p>
+                        <button :class="['low', {seleccionado:tarea.prioridad==1}]"
+                            @click="cambiarPrioridad('low', tarea.id)"><i class="fa-solid fa-caret-down"></i>
+                            Low</button>
+                        <button :class="['mid', {seleccionado:tarea.prioridad==2}]"
+                            @click="cambiarPrioridad('mid', tarea.id)">Normal</button>
+                        <button :class="['high', {seleccionado:tarea.prioridad==3}]"
+                            @click="cambiarPrioridad('high', tarea.id)"><i class="fa-sharp fa-solid fa-caret-up"></i>
+                            High</button>
+
+                        <p><i class="fa-solid fa-clock"></i> {{getFechaHaceXTiempo(tarea)}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="code.js"></script>
+
+</html>
